@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+	<title>グラフ</title> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" >
+</head>
+<body>
+<div class="container">
+  <canvas id="myBarChart"></canvas>
+</div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+
+  <script>
+  var ctx = document.getElementById("myBarChart");
+  var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['回数'],
+      datasets: [
+        {
+          label: 'Team A',
+					backgroundColor: "rgba(153, 102, 255, 0.5)",
+					borderColor: "rgb(153, 102, 255)",
+					borderWidth: 1,
+          data: [0]
+				}, 
+        {
+          label: 'Team B',
+					backgroundColor: "rgba(75, 192, 192, 0.5)",
+					borderColor: "rgb(75, 192, 192)",
+					borderWidth: 1,
+          data: [0]
+        }, 
+        {
+          label: 'Team C',
+					backgroundColor: "rgba(255, 99, 132, 0.5)",
+					borderColor: "rgb(255, 99, 132)",
+					borderWidth: 1,
+          data: [0]
+        }, 
+        {
+          label: 'Team D',
+					backgroundColor: "rgba(255, 159, 64, 0.5)",
+					borderColor: "rgb(255, 159, 64)",
+					borderWidth: 1,
+          data: [0]
+        }, 
+        {
+          label: 'Team E',
+					backgroundColor: "rgba(255, 205, 86, 0.5)",
+					borderColor: "rgb(255, 205, 86)",
+					borderWidth: 1,
+          data: [0]
+        }, 
+
+			]
+    },
+    options: {
+      title: {
+        display: true,
+        text: '回数'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            suggestedMax: 50,
+            suggestedMin: 0,
+            stepSize: 10,
+            callback: function(value, index, values){
+              return  value +  '回'
+            }
+          }
+        }]
+      },
+    }
+  });
+  
+  document.body.addEventListener('keydown',
+    event => {
+        if (event.key === '1') {
+					myBarChart.data.datasets[0].data[0]++;
+					myBarChart.update();
+        }
+        if (event.key === '2') {
+					myBarChart.data.datasets[1].data[0]++;
+					myBarChart.update();
+        }
+        if (event.key === '3') {
+					myBarChart.data.datasets[2].data[0]++;
+					myBarChart.update();
+        }
+        if (event.key === '4') {
+					myBarChart.data.datasets[3].data[0]++;
+					myBarChart.update();
+        }
+        if (event.key === '5') {
+					myBarChart.data.datasets[4].data[0]++;
+					myBarChart.update();
+        }
+    });
+  
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
