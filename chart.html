@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="container">
+  <h1>Graph Demo</h1>
   <canvas id="myBarChart"></canvas>
 </div>
 
@@ -56,7 +57,6 @@
 					borderWidth: 1,
           data: [0]
         }, 
-
 			]
     },
     options: {
@@ -67,7 +67,7 @@
       scales: {
         yAxes: [{
           ticks: {
-            suggestedMax: 50,
+            suggestedMax: 30,
             suggestedMin: 0,
             stepSize: 10,
             callback: function(value, index, values){
